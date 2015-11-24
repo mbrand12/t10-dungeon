@@ -92,7 +92,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 
 
  # To generate dungeon (returns Array<Room>):
- T10::Dungeon.generator.generate(rooms, entrance_room, exit_room)
+ T10::Dungeon.generate(rooms, entrance_room, exit_room)
 
 ```
 ## License
