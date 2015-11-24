@@ -27,7 +27,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 ```ruby
 
  class Room
-   include T10::Traversable
+   include T10::Dungeon::Traversable
 
    # Maximum number of doors.
    DOORS = 4

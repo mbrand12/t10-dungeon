@@ -35,7 +35,7 @@ module T10
   # Example of minimal requirement for a classes to be a "room":
   #
   #     class Room
-  #       include T10::Traversable
+  #       include T10::Dungeon::Traversable
   #
   #       def initialize
   #         @doors = {
@@ -88,7 +88,7 @@ module T10
   #
   #       # room logic...
   #     end
-  class Dungeon
+  module Dungeon
     # The max number of rooms needed of a certain type.
     ROOM_TYPE_LIMIT = [0, 4, 3, 2, 1]
 
