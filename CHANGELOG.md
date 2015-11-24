@@ -9,7 +9,8 @@ file. This change log is based upon [keep-a-changelog]. This project adheres to
 ###Added
 
 - Basic gem project folder and file structure (bin, lib, test).
-- CHANGELOG, contain notable changes to this gem.
+- CHANGELOG, contains notable changes to this gem.
+- DEVCORE, contains motivation and development details.
 - Dungeon, a generator which randomly connects classes that include Traversable.
 - Traversable, a mixin needed for dungeon to connect rooms.
 
