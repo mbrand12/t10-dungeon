@@ -174,7 +174,7 @@ module T10
         raise StandardError, "No duplicate classes allowed!"
       end
       rooms.each do |room|
-        unless room.included_modules.include?(T10::Traversable)
+        unless room.included_modules.include?(T10::Dungeon::Traversable)
           raise StandardError, "Class #{room} did not include Traversable module"
         end
         unless room.const_defined? :DOORS
