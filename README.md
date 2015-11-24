@@ -5,6 +5,8 @@ random placements of the rooms. This gem is extracted from
 [t10](https://github.com/mbrand12/t10) text adventure game as a gem creation
 exercise from a ruby app exercise.
 
+This gem uses [gitflow](https://github.com/petervanderdoes/gitflow-avh) workflow.
+
 ## Installation
 
 Add this line to your application's Gemfile:
