@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 
-gem 't10-dungeon', path: 'https://github.com/mbrand12/t10-dungeon.git', branch: 'develop'
+gem 't10-dungeon', git: 'https://github.com/mbrand12/t10-dungeon.git', branch: 'develop'
 
 ```
 
