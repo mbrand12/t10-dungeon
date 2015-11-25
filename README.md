@@ -52,9 +52,10 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
    def initialize
      super
 
-     @has_left = true
+     @has_left =  false
      @has_right = false
-     @has_ahead = false
+     @has_ahead = true  # @has_ahead must be true for the entrance room for
+                        # dungeon generator to work, currently...
    end
 
    # room logic...
