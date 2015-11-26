@@ -7,7 +7,7 @@ class TraversableTest < Minitest::Test
     room2 = R12.new
     room3 = R13.new
 
-    room1.connect_to(nil)
+    room1.prepare_entrance!
     room1.connect_to(room2)
 
     msg = "Room should not be able to be connected to the room that has" \
@@ -20,7 +20,7 @@ class TraversableTest < Minitest::Test
     room1 = R31.new
     room2 = R11.new
 
-    room1.connect_to(nil)
+    room1.prepare_entrance!
     room1.connect_to(room2)
 
     msg = "Should not allow adding duplicate rooms"

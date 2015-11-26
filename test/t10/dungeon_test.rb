@@ -21,8 +21,4 @@ class T10::DungeonTest < Minitest::Test
     assert_equal generated_rooms_limit, @generated_rooms.size,
       "Number of generated rooms must be #{generated_rooms_limit}"
   end
-
-  def test_room_type_limit
-    skip
-  end
 end

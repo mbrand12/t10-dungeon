@@ -151,7 +151,7 @@ module T10
       populate_types_and_shuffle(rooms)
 
       @dungeon_rooms = [@entrance_room.new]
-      @dungeon_rooms[0].connect_to(nil)
+      @dungeon_rooms[0].prepare_entrance!
 
       @dungeon_rooms.each do |current_room|
         next if current_room.class::DOORS == 1

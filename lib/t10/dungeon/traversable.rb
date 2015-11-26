@@ -58,12 +58,23 @@ module T10
     # These methods are used only when generating the dungeon, and should only
     # be used by the dungeon generator.
     module Traversable
+
+      # Prepares the entrance room by modifying the `@doors` instance variable
+      # so that it can connect to the other rooms. Any first room to be
+      # connected must use this method.
+      #
+      # @return [void]
+      def prepare_entrance!
+        int_direction = [:ahead, :origin, :to_left, :to_right]
+
+        @doors.each do |ext_direction, _|
+          int_dir_pluck = int_direction.delete_at(rand(int_direction.length))
+          @doors[ext_direction].push(int_dir_pluck, nil)
+        end
+      end
       # Connects one room to another where the receiver is the origin room. If
       # the `room` parameter is nil then the external orientation is randomly
       # selected (the only case for this is for the entrance room).
-      #
-      # This is the only method that should be called in order to connect the
-      # rooms.
       #
       # First the room (parameter) in question is added to the @doors of the
       # origin room (receiver), based on weather the room has any empty doors to
@@ -76,9 +87,7 @@ module T10
       #
       # @param room [Room] The room that gets assigned its origin door.
       # @return [Room] the room that was assigned its origin door.
-      def connect_to(room = nil)
-        return add_origin_door unless room
-
+      def connect_to(room)
         crest_to_room = add_door_leading_to(room)
         @doors[crest_to_room][-1].add_origin_door(self, crest_to_room)
       end
@@ -104,15 +113,11 @@ module T10
       #                               receiver.
       # @raise [StandardError] if the origin room doesn't lead to the receiver.
       # @return [Room] the receiver.
-      def add_origin_door(origin_room = nil, crest_to_room = nil)
+      def add_origin_door(origin_room, crest_to_room)
         if origin_room && !crest_to_room
           fail StandardError,
                "#{origin_room} should lead to this (#{self.class} room) " \
                "before #{self.class} can lead to #{origin_room}"
-        end
-
-        unless origin_room
-          crest_to_room = [:east, :south, :west, :north].sample
         end
 
         case crest_to_room

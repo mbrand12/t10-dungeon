@@ -46,7 +46,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 
  class EntranceRoom < Room
 
-   # Entrance must have 2 doors for the dungeon generator to work.
+   # Entrance must have at least 2 doors for the dungeon generator to work.
    DOORS = 2
 
    def initialize
@@ -54,8 +54,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 
      @has_left =  false
      @has_right = false
-     @has_ahead = true  # @has_ahead must be true for the entrance room for
-                        # dungeon generator to work, currently...
+     @has_ahead = true
    end
 
    # room logic...
