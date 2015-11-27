@@ -1,9 +1,13 @@
 # T10::Dungeon
 
+[![Build Status](https://travis-ci.org/mbrand12/t10-dungeon.svg)](https://travis-ci.org/mbrand12/t10-dungeon)
+
 This gem will generate a 10 room dungeon (plus entrance and exit rooms) with
 random placements of the rooms. This gem is extracted from
 [t10](https://github.com/mbrand12/t10) text adventure game as a gem creation
 exercise from a ruby app exercise.
+
+This gem uses [gitflow](https://github.com/petervanderdoes/gitflow-avh) workflow.
 
 ## Installation
 
@@ -11,7 +15,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 
-gem 't10-dungeon', path: 'https://github.com/mbrand12/t10-dungeon.git', branch: 'develop'
+gem 't10-dungeon', git: 'https://github.com/mbrand12/t10-dungeon.git', branch: 'develop'
 
 ```
 
@@ -27,7 +31,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 ```ruby
 
  class Room
-   include T10::Traversable
+   include T10::Dungeon::Traversable
 
    # Maximum number of doors.
    DOORS = 4
@@ -44,15 +48,15 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 
  class EntranceRoom < Room
 
-   # Entrance must have 2 doors for the dungeon generator to work.
+   # Entrance must have at least 2 doors for the dungeon generator to work.
    DOORS = 2
 
    def initialize
      super
 
-     @has_left = true
+     @has_left =  false
      @has_right = false
-     @has_ahead = false
+     @has_ahead = true
    end
 
    # room logic...
@@ -92,7 +96,7 @@ rooms implemented along with entrance and exit room.. so 12 total :) ):
 
 
  # To generate dungeon (returns Array<Room>):
- T10::Dungeon.generator.generate(rooms, entrance_room, exit_room)
+ T10::Dungeon.generate(rooms, entrance_room, exit_room)
 
 ```
 ## License

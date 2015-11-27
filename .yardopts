@@ -1,0 +1,7 @@
+--protected
+--markup-provider=redcarpet
+--markup=markdown
+-
+README.md
+CHANGELOG.md
+DEVCORE.md

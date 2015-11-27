@@ -6,3 +6,13 @@ rvm:
   - 2.2.3
 
 before_install: gem install bundler -v 1.10.6
+
+bundler_args: --without development
+
+branches:
+  only:
+    - master
+    - develop
+
+script:
+  - bundle exec rake
