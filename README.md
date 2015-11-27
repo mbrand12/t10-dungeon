@@ -1,5 +1,7 @@
 # T10::Dungeon
 
+[![Build Status](https://travis-ci.org/mbrand12/t10-dungeon.svg)](https://travis-ci.org/mbrand12/t10-dungeon)
+
 This gem will generate a 10 room dungeon (plus entrance and exit rooms) with
 random placements of the rooms. This gem is extracted from
 [t10](https://github.com/mbrand12/t10) text adventure game as a gem creation
